@@ -1,0 +1,2 @@
+class CardTech < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class CardDiff < ApplicationRecord
+end

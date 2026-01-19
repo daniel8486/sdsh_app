@@ -1,0 +1,43 @@
+<div class="cta__form" style="margin-bottom: 2rem;">
+    <%= form_with model: @contact, url: site_contacts_path, local: true, html: { class: 'contact-form fade-in-up' } do |f| %>
+        <div class="form-row">
+            <div class="form-group">
+                <%= f.label :name, 'Nome', class: 'form-label form-label-left' %>
+                <div class="input-icon">
+                    <span class="icon-user"></span>
+                    <%= f.text_field :name, class: 'form-control', required: true, placeholder: 'Seu nome completo' %>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <%= f.label :email, 'E-mail', class: 'form-label form-label-left' %>
+                <div class="input-icon">
+                    <span class="icon-mail"></span>
+                    <%= f.email_field :email, class: 'form-control', required: true, placeholder: 'seu@email.com' %>
+                </div>
+            </div>
+            <div class="form-group">
+                <%= f.label :phone, 'Telefone', class: 'form-label form-label-left' %>
+                <div class="input-icon">
+                    <span class="icon-phone"></span>
+                    <%= f.telephone_field :phone, class: 'form-control', placeholder: '(11) 99999-9999', data: { controller: 'phone-mask' } %>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <%= f.label :message, 'Mensagem', class: 'form-label form-label-left' %>
+                <%= f.text_area :message, class: 'form-control', required: true, rows: 4, placeholder: 'Como podemos ajudar?' %>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                    <div class="recaptcha-wrapper" style="margin-bottom: 1rem;">
+                        <%= recaptcha_tags %>
+                    </div>
+                    <%= f.submit 'Enviar Mensagem', class: 'btn btn-primary btn-large', data: { disable_with: 'Enviando...' } %>
+            </div>
+        </div>
+    <% end %>
+</div>

@@ -1,0 +1,171 @@
+<!-- Hero Section -->
+    <section class="hero" id="home">
+      <% @profiles.each do |profile| %>
+        <div class="hero__container container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    <% highlighted_title = profile.title.to_s.gsub(/(Performance|Performace)/i) { |w| "<span class=\"gradient-text\">#{w}</span>" } %>
+                    <%= highlighted_title.html_safe %>
+                </h1>
+                <p class="hero__description">
+                    <%= profile.sub_title %>
+                </p>
+                <div class="hero__buttons">
+                    <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
+                    <a href="#contact" class="btn btn-secondary">Fale Conosco</a>
+                </div>
+            </div>
+            <div class="hero__decoration">
+                <div class="decoration-box box-1"></div>
+                <div class="decoration-box box-2"></div>
+                <div class="decoration-box box-3"></div>
+            </div>
+        </div>
+      <% end %>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <% @about_companies.each do |about_company| %>
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle"><%= about_company.title %></span>
+                <h2 class="section__title"><%= about_company.sub_title %></h2>
+            </div>
+
+            <div class="about__content">
+                <p class="about__text" style="text-align: justify;">
+                    <% highlighted_text_about_first = about_company.text_about_first.to_s.gsub(/(Sys Djam Soft House)/i) { |w| "<strong>#{w}</strong>" } %>
+                    <%= highlighted_text_about_first.html_safe %>
+                </p>
+
+                <p class="about__text" style="text-align: justify;">
+                    <% highlighted_text_about_second = about_company.text_about_second.to_s.gsub(/(escalabilidade|segurança|qualidade)/i) { |w| "<strong>#{w}</strong>" } %>
+                    <%= highlighted_text_about_second.html_safe %>
+                </p>
+
+                <div class="about__stats">
+                    <div class="stat">
+                        <div class="stat__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="stat__number"><%= about_company.projects_delivered %></h3>
+                        <p class="stat__label"><%= about_company.name_projects_delivered %></p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="stat__number"><%= about_company.uptime_garanteed %></h3>
+                        <p class="stat__label"><%= about_company.name_uptime_garanteed %></p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3 class="stat__number"><%= about_company.sastified_customers %></h3>
+                        <p class="stat__label"><%= about_company.name_sastified_customers %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <% @card_services.each do |card_service| %>
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle"><%= card_service.title_service%></span>
+                <h2 class="section__title"><%= card_service.sub_title %></h2>
+            </div>
+
+            <div class="services__grid">
+                <% card_service.cards&.each do |card| %>
+                  <article class="service-card">
+                    <div class="service-card__icon">
+                      <%= card["icon_service"].html_safe %>
+                    </div>
+                    <h3 class="service-card__title"><%= card["title_service"] %></h3>
+                    <p class="service-card__description"><%= card["description_service"] %></p>
+                  </article>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies" id="technologies">
+        <% @card_teches.each do |card_tech| %>
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle"><%= card_tech.title %></span>
+                <h2 class="section__title"><%= card_tech.subtitle %></h2>
+            </div>
+
+            <div class="tech__grid">
+                <% card_tech.cards&.each do |card| %>
+                <div class="tech-category">
+                    <h3 class="tech-category__title"><%= card["name"].html_safe %></h3>
+                    <p class="tech-category__description">
+                        <%= card["tech_description"].html_safe %>
+                    </p>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+
+    <!-- Differentials Section -->
+    <section class="differentials">
+        <% @card_diffs.each do |card_diff| %>
+        <div class="container">
+            <div class="section__header">
+                <span class="section__subtitle"><%= card_diff.title %></span>
+                <h2 class="section__title"><%= card_diff.subtitle %></h2>
+            </div>
+
+            <div class="differentials__grid">
+                <% card_diff.cards&.each do |card| %>
+                <div class="differential-item">
+                    <div class="differential-item__number"><%= card["number"].html_safe %></div>
+                    <h3 class="differential-item__title"><%= card["title"].html_safe %></h3>
+                    <p class="differential-item__description">
+                        <%= card["description"].html_safe %>
+                    </p>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta__content">
+             <h2 class="cta__title">Pronto para Transformar seu Negócio?</h2>
+             <p class="cta__description">
+                     Entre em contato com nossa equipe e descubra como podemos
+                     impulsionar seus resultados com tecnologia de ponta.
+             </p>
+             
+            <%= render "site/welcome/form" %>
+             
+            </div>
+        </div>
+    </section>

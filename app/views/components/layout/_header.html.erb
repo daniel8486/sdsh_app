@@ -1,0 +1,36 @@
+<!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+              <a href="#home" class="logo">
+                <%= image_tag "logo_1.png", alt: "Sys Djam Soft House Logo", class: "logo-image" %>
+              </a>
+            </div>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <%= link_to "Início", "#home", class: "nav__link active-link" %>
+                    </li>
+                    <li class="nav__item">
+                        <%= link_to "Serviços", "#services", class: "nav__link" %>
+                    </li>
+                    <li class="nav__item">
+                        <%= link_to "Tecnologias", "#technologies", class: "nav__link" %>
+                    </li>
+                    <li class="nav__item">
+                        <%= link_to "Sobre", "#about", class: "nav__link" %>
+                    </li>
+                    <li class="nav__item">
+                        <%= link_to "Contato", "#contact", class: "nav__link nav__cta" %>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
