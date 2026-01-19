@@ -11,8 +11,8 @@ class Site::ContactsController < SiteController
     @contact = Contact.new(contact_params)
 
     begin
-      unless verify_recaptcha(model: @contact)
-        flash.now[:alert] = "Por favor, confirme que você não é um robô."
+      unless verify_recaptcha(action: "contact", minimum_score: 0.5, model: @contact)
+        flash.now[:alert] = "Falha na verificação do reCAPTCHA. Por favor, tente novamente."
         render "site/welcome/index" and return
       end
     rescue Recaptcha::RecaptchaError => e
