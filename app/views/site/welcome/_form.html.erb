@@ -4,7 +4,6 @@
             <div class="form-group">
                 <%= f.label :name, 'Nome', class: 'form-label form-label-left' %>
                 <div class="input-icon">
-                    <span class="icon-user"></span>
                     <%= f.text_field :name, class: 'form-control', required: true, placeholder: 'Seu nome completo' %>
                 </div>
             </div>
@@ -13,14 +12,12 @@
             <div class="form-group">
                 <%= f.label :email, 'E-mail', class: 'form-label form-label-left' %>
                 <div class="input-icon">
-                    <span class="icon-mail"></span>
                     <%= f.email_field :email, class: 'form-control', required: true, placeholder: 'seu@email.com' %>
                 </div>
             </div>
             <div class="form-group">
                 <%= f.label :phone, 'Telefone', class: 'form-label form-label-left' %>
                 <div class="input-icon">
-                    <span class="icon-phone"></span>
                     <%= f.telephone_field :phone, class: 'form-control', placeholder: '(11) 99999-9999', data: { controller: 'phone-mask' } %>
                 </div>
             </div>
