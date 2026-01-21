@@ -17,36 +17,43 @@
     <link rel="icon" type="image/png" href="<%= asset_path('logo_1.png') %>">
 
     <!-- SEO Schema --> 
-    <script type="application/ld+json"> 
-       { 
-           "@context": "https://schema.org", 
-           "@type": "LocalBusiness", 
-           "name": "Sys Djam Soft House", 
-           "address": { 
-               "@type": "PostalAddress", 
-               "streetAddress": "Rua Professor Flávio Teixeira de Abreu", 
-               "addressLocality": "Teresina", 
-               "addressRegion": "PI", 
-               "postalCode": "64057-158", 
-               "addressCountry": "BR" 
-           }, 
-           "description": "Desenvolvimento de sistemas web e mobile, suporte e infraestrutura de servidores web.", 
-           "areaServed": "Brasil",
-           "sameAs": [ 
-               "https://www.linkedin.com/sys-djam-soft-house",
-               "https://github.com/sysdjamsofthouse"
-           ],
-           "founder": {
-               "@type": "Person",
-               "name": "Daniel Jonas Alves Matos"
-           },
-           "knowsAbout": [
-             "Desenvolvimento Web",
-             "APIs REST",
-             "Infraestrutura de Servidores",
-             "Automação"
-           ]
-      } 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://sysdjamsofthouse.com.br/#localbusiness",
+      "name": "Sys Djam Soft House",
+      "url": "https://sysdjamsofthouse.com.br",
+      "description": "Desenvolvimento de sistemas web e mobile, APIs, automação e infraestrutura de servidores.",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Brasil"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Professor Flávio Teixeira de Abreu",
+        "addressLocality": "Teresina",
+        "addressRegion": "PI",
+        "postalCode": "64057-158",
+        "addressCountry": {
+          "@type": "Country",
+          "name": "BR"
+        }
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Daniel Jonas Alves Matos"
+      },
+      "sameAs": [
+        "https://github.com/sysdjamsofthouse"
+      ],
+      "knowsAbout": [
+        "Desenvolvimento Web",
+        "APIs REST",
+        "Infraestrutura de Servidores",
+        "Automação"
+      ]
+    }
     </script>
 
     <!-- Open Graph -->
